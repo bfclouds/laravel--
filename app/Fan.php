@@ -8,7 +8,7 @@ class Fan extends Model
 {
     //粉丝用户
     public function fuser() {
-        return $this->hasOne('App\User');
+        return $this->hasOne('App\User','id','fan_id');
     }
     //明星用户
     public function suser() {

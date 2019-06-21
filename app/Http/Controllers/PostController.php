@@ -17,7 +17,7 @@ class PostController extends Controller
 //        $log = $app->make("log");//从容器中获取日志类
 //        $log->info("post_index",['data'=>'this is post index']);
         \Log::info("post_index",['data'=>'this is post index']); // 门脸类
-        $posts = Post::orderBy('created_at','desc')->withCount(['comments','zans'])->with('user')->paginate(6);
+        $posts = Post::orderBy('created_at','desc')->withCount(['comments','zans'])->with(['user'])->paginate(6);
         return view('post/index',compact("posts"));//compact创建一个$posts值的数组,传递给视图:index
     }
     //详情页面
@@ -77,8 +77,7 @@ class PostController extends Controller
     //图片上传
     public function imageUplode(Request $request) {
         $path = $request->file('wangEditorH5File')->storePublicly(md5(time()));//获取
-        $data = asset('storage/'.$path);
-        echo $data;
+        return asset('storage/'.$path);
     }
 
     public function comment(Post $post) {

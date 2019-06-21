@@ -24,7 +24,7 @@ class User extends Authenticatable
     //我关注的
     public function stars() {
         //我是粉丝
-        return $this->hasMany('App\Star','fan_id','id');
+        return $this->hasMany('App\Fan','fan_id','id');
     }
     //我关注某人（动作）
     public function doFan($uId) {

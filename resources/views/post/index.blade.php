@@ -38,7 +38,7 @@
             <div class="blog-post">
                 <h2 class="blog-post-title"><a href="/posts/{{$post->id}}" >{{$post->title}}</a></h2>
                 <!-- $post->user->name 中，user不带括号是关联关系， 代括号user(),返回的是user方法 -->
-                <p class="blog-post-meta">{{ $post->created_at->toFormattedDateString() }} <a href="/user/5">{{ $post->user->name }}</a></p>
+                <p class="blog-post-meta">{{ $post->created_at->toFormattedDateString() }} <a href="/user/{{$post->user->id}}">{{ $post->user->name }}</a></p>
 
                 <p>{!! str_limit($post->content,200,'...')  !!} </p>
                 <p class="blog-post-meta">赞 {{ $post->zans_count }}  | 评论 {{ $post->comments_count  }}</p>

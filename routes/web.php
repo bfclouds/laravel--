@@ -52,17 +52,22 @@ Route::post('/posts/image/upload','PostController@imageUplode');
 
 
 //评论
-Route::post('/posts/{post}/comment','PostController@comment');
+Route::post('/posts/{user}/comment','PostController@comment');
 //zan
-Route::get('/posts/{post}/zan','PostController@zan');
+Route::get('/posts/{user}/zan','PostController@zan');
 //取消赞
-Route::get('/posts/{post}/unzan','PostController@unzan');
+Route::get('/posts/{user}/unzan','PostController@unzan');
 
 //个人设置
-Route::get('/user/{post}/setting','UserController@setting');
+Route::get('/user/{user}/setting','UserController@setting');
 //个人设置行为
-Route::post('/user/{post}/setting','UserController@settingStore');
+Route::post('/user/{user}/setting','UserController@settingStore');
+
+//关注行为
+Route::get('/user/{user}/doFan','UserController@fan');
+//取消关注行为
+Route::get('/user/{user}/doUnFan','UserController@unFan');
 
 //我的主页
-Route::get('/user/{post}','UserController@show');
+Route::get('/user/{user}','UserController@show');
 //我的主页行为
